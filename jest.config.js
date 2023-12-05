@@ -1,26 +1,16 @@
-
 /**
  * @type {import("@jest/types").Config.ProjectConfig}
  */
 module.exports = {
   testTimeout: 10 * 1000,
   transform: {
-    ".(ts|tsx)": "ts-jest"
+    ".(js|ts|tsx)": "ts-jest",
   },
-  collectCoverageFrom: [
-    "src/**/*.ts",
-    "!**/node_modules/**"
-  ],
-  coveragePathIgnorePatterns: [
-    "node_modules/",
-  ],
+  collectCoverageFrom: ["src/**/*.ts", "!**/node_modules/**"],
+  coveragePathIgnorePatterns: ["node_modules/"],
   testEnvironment: "node",
-  testRegex: "/test/.*\\.test\\.ts$",
-  moduleFileExtensions: [
-    "ts",
-    "js",
-    "json"
-  ],
+  testRegex: "/test/.*\\.test\\.[tj]s$",
+  moduleFileExtensions: ["ts", "js", "json"],
   coverageThreshold: {
     global: {
       branches: 80,
@@ -29,5 +19,5 @@ module.exports = {
       statements: 85,
     },
   },
-  reporters: ["default", ["jest-junit", { outputDirectory: "coverage" }]]
+  reporters: ["default", ["jest-junit", { outputDirectory: "coverage" }]],
 };
